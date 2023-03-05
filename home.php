@@ -11,7 +11,6 @@
 </head>
 <body>
     <h4>Bem Vindo!!</h4>
-    <a href="cadastrogerente.php">Cadastre-se</a>
     <a href="login.php">Login</a>
 </body>
 </html>

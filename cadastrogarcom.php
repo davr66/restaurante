@@ -1,5 +1,17 @@
 <?php 
-    if (isset($_POST['submit'])) {
+session_start();
+//print_r($_SESSION);
+    if ((!isset($_SESSION['email']) == true) && (!isset($_SESSION['senha']) == true || ($_SESSION['nivel']) != 1)) 
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header("Location:login.php");
+    }
+
+    $logado = $_SESSION['email'];
+    
+    if (isset($_POST['submit'])) 
+    {
         //print_r($_POST['nome']);
         //print_r("<br>");
         //print_r($_POST['email']);
@@ -24,6 +36,7 @@
         $rg=$_POST['rg'];
         $senha=$_POST['senha'];
         $confirmarSenha=$_POST['confirmarSenha'];
+        $nivel=0;
 
 
         if(validarCPF($cpf))
@@ -31,10 +44,10 @@
             if($senha == $confirmarSenha)
             {
                 $cpf = preg_replace('/[^0-9]/', "", $cpf);
-                $result = mysqli_query($conexao,"INSERT INTO gerente(nome,telefone,endereco,cpf,rg,email,senha) 
-                VALUES ('$nome','$telefone','$endereco','$cpf','$rg','$email','$senha')");
+                $result = mysqli_query($conexao,"INSERT INTO usuario(nome,telefone,endereco,cpf,rg,email,senha,nivel) 
+                VALUES ('$nome','$telefone','$endereco','$cpf','$rg','$email','$senha',$nivel)");
                 
-                header("Location:login.php");
+                echo "<script>alert('Garçom cadastrado!')</script>";
             }
             else
             {
@@ -52,10 +65,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Gerente</title>
+    <title>Cadastro de Garcom</title>
 </head>
 <body>
-    <form method="post" action="cadastrogerente.php">
+    <form method="post" action="cadastrogarcom.php">
         <label for="nome">Nome:</label>
         <input type="text" name="nome">
         <br>
@@ -82,6 +95,6 @@
         <br>
         <input type="submit" name="submit" value="Enviar">     
 </form> 
-    <a href="home.php">Voltar</a>
+    <a href="sistemagerente.php">Voltar</a>
 </body>
 </html>

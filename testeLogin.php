@@ -1,7 +1,8 @@
 <?php 
     session_start();
     //print_r($_REQUEST);
-    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
+    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
+    {
         //acessa
         include_once('config.php');
         $email = $_POST['email'];
@@ -12,20 +13,40 @@
         print_r('<br>');
         print_r('Senha: '.$senha);
 
-        $sql = "SELECT * FROM gerente WHERE email = '$email' AND senha = '$senha'";
+        $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
         $result = $conexao->query($sql);
 
+        $queryNivel = "SELECT nivel FROM usuario WHERE email = '$email' AND senha = '$senha'";
+        $nivel = $conexao->query($queryNivel);
+        $nivelArray = mysqli_fetch_array($nivel);
+        $nivel = $nivelArray[0];
         //print_r($sql);
         //print_r($result);
 
-        if(mysqli_num_rows($result) < 1){
+        if(mysqli_num_rows($result) < 1)
+        {
             header("Location:login.php");
-        }else{
+        }
+        else
+        {
+            if($nivel)
+            {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-            header("Location:sistema.php");
+            $_SESSION['nivel'] = $nivel;
+            header("Location:sistemagerente.php");
+            }
+            else
+            {
+            $_SESSION['email'] = $email;
+            $_SESSION['senha'] = $senha;
+            $_SESSION['nivel'] = $nivel;
+            header("Location:sistemagarcom.php");
+            }
         }
-    }else{
+    }
+    else
+    {
         header("Location:login.php"); //nao acessa
     }
 ?>
