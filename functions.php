@@ -30,10 +30,9 @@ $result2 = ($soma2 * 10)%11;
 
         if($result1 =! $cpf[9] or $result2 != $cpf[10]){
             $validade=false;
-            return $validade;
         }else{
             $validade=true;
-            return $validade;
         }
+    return $validade;
     }
 }

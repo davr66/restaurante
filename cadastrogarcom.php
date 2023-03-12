@@ -39,7 +39,7 @@ session_start();
         $nivel=0;
 
 
-        if(validarCPF($cpf))
+        if(validarCPF($cpf) == true)
         {
             if($senha == $confirmarSenha)
             {
