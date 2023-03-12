@@ -31,7 +31,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garçons</title>
+    <title>Contas</title>
 </head>
 <style>
     table,td,th {
@@ -60,6 +60,7 @@ session_start();
                 <?php 
                     while ($row = mysqli_fetch_array($contas)) 
                     {
+                        echo "<tr>";
                         echo "<th>".$row['idConta']."</th>";
                         echo "<th>".$row['garcom']."</th>";
                         echo "<th>".$row['dataAbertura']."</th>";
@@ -67,11 +68,13 @@ session_start();
                         echo "<th>".$row['produto']."</th>";
                         echo "<th>".$row['qtd']."</th>";
                         echo "<th>".$row['valorTotal']."</th>";
-                        echo '<th> <form method="post">';
-                        echo '<input type="hidden" name="idConta" value="'.$row['idConta'].'">';
-                        echo '<button type="submit" onclick="<script>alert(`Você tem certeza?`)</script>">';
-                        echo '<input type="hidden" name="excluir">';
-                        echo 'Deletar</button></form>';
+                        echo '<th>
+                        <a href="contasedit.php?idConta='.$row['idConta'].'">Editar</a>
+                        </th>';
+                        echo '<th> <form method="post" action="contas.php">
+                        <input type="hidden" name="idConta" value="'.$row['idConta'].'">
+                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
+                        echo '</tr>';
                     }
                 ?>
         </tbody>
@@ -80,3 +83,14 @@ session_start();
     <a href="<?php echo $voltar; ?>">Voltar</a>
 </body>
 </html>
+<?php 
+    if (isset($_POST['excluir'])) {
+        $id = $_POST['idConta'];
+
+        $deleteContaQuery = 'DELETE FROM conta WHERE idConta ='.$id;
+        $conexao->query($deleteContaQuery);
+        
+        
+        header('Location:contas.php');
+    }
+?>

@@ -7,10 +7,17 @@ session_start();
         unset($_SESSION['senha']);
         header("Location:login.php");
     }
+    if (!empty($_GET)) {
+        include_once("config.php");
+        $idGarcom = $_GET['idUsuario'];
 
+        $garcomQuery = 'SELECT * FROM usuario WHERE idUsuario ='.$idGarcom;
+        $garcom = $conexao->query($garcomQuery);
+        $garcom = mysqli_fetch_array($garcom);
+    }
     $logado = $_SESSION['email'];
     
-    if (isset($_POST['submit'])) 
+    if (isset($_POST['update'])) 
     {
         //print_r($_POST['nome']);
         //print_r("<br>");
@@ -28,6 +35,7 @@ session_start();
         include_once("config.php");
         include_once("functions.php");
 
+        $idGarcom = $_POST['idUsuario'];
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $telefone= $_POST['telefone'];
@@ -43,10 +51,10 @@ session_start();
         {
             if($senha == $confirmarSenha)
             {
-                $result = mysqli_query($conexao,"INSERT INTO usuario(nome,telefone,endereco,cpf,rg,email,senha,nivel) 
-                VALUES ('$nome','$telefone','$endereco','$cpf','$rg','$email','$senha',$nivel)");
-                
-                echo "<script>alert('Garçom cadastrado!')</script>";
+                $result = mysqli_query($conexao,"UPDATE usuario SET nome='$nome',telefone='$telefone'
+                ,endereco='$endereco',cpf='$cpf',rg='$rg',email='$email',senha='$senha'
+                WHERE idUsuario =".$idGarcom);
+                header("Location:garcom.php");
             }
             else
             {
@@ -64,35 +72,37 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Garcom</title>
+    <title>Edição de Garcom</title>
 </head>
 <body>
-    <form method="post" action="cadastrogarcom.php">
+    <form method="post" action="garcomedit.php">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome">
+        <input type="text" value="<?php echo $garcom['nome']?>" name="nome">
         <br>
         <label for="email">Email:</label>
-        <input type="text" name="email">
+        <input type="text" value="<?php echo $garcom['email']?>" name="email">
         <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone">
+        <input type="text" value="<?php echo $garcom['telefone']?>" name="telefone">
         <br>
         <label for="endereço">Endereço:</label>
-        <input type="text" name="endereço">
+        <input type="text" value="<?php echo $garcom['endereco']?>" name="endereço">
         <br>
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf">
+        <input type="text" value="<?php echo $garcom['cpf']?>" name="cpf">
         <br>
         <label for="rg">RG:</label>
-        <input type="text" name="rg">
+        <input type="text" value="<?php echo $garcom['rg']?>" name="rg">
         <br>
         <label for="senha">Senha</label>
-        <input type="password" name="senha">    
+        <input type="password" value="<?php echo $garcom['senha']?>" name="senha">    
         <br>
         <label for="confirmarSenha">Confirme a sua senha</label>
-        <input type="password" name="confirmarSenha"> 
+        <input type="password" value="<?php echo $garcom['senha']?>" name="confirmarSenha"> 
         <br>
-        <input type="submit" name="submit" value="Enviar">     
+        <input type="hidden" value="<?php echo $idGarcom ?>" name="idUsuario">
+        <br>
+        <input type="submit" name="update" value="Atualizar">     
 </form> 
     <a href="sistemagerente.php">Voltar</a>
 </body>

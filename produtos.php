@@ -62,6 +62,12 @@ session_start();
                         echo "<td>".$row['valor']."</td>";
                         echo "<td>".$row['nomeCategoria']."</td>";
                         echo "<td>".$row['quantEstoque']."</td>";
+                        echo '<th>
+                        <a href="produtosedit.php?idProduto='.$row['idProduto'].'">Editar</a>
+                        </th>';
+                        echo '<th> <form method="post" action="produtos.php">
+                        <input type="hidden" name="idProduto" value="'.$row['idProduto'].'">
+                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
                         echo "</tr>";
                     }
                 ?>
@@ -71,3 +77,14 @@ session_start();
     <a href="<?php echo $voltar; ?>">Voltar</a>
 </body>
 </html>
+<?php 
+    if (isset($_POST['excluir'])) {
+        $id = $_POST['idProduto'];
+
+        $deleteProdutoQuery = 'DELETE FROM produto WHERE idProduto ='.$id;
+        $conexao->query($deleteProdutoQuery);
+        
+        
+        header('Location:produtos.php');
+    }
+?>

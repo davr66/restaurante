@@ -62,6 +62,13 @@ session_start();
                         echo "<td>".$row['cpf']."</td>";
                         echo "<td>".$row['rg']."</td>";
                         echo "<td>".$row['email']."</td>";
+                        echo '<th>
+                        <a href="garcomedit.php?idUsuario='.$row['idUsuario'].'">Editar</a>
+                        </th>';
+                        echo '<th> <form method="post" action="garcom.php">
+                        <input type="hidden" name="idUsuario" value="'.$row['idUsuario'].'">
+                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
+                        echo "</tr>";
                         echo "</tr>";
                     }
                 ?>
@@ -71,3 +78,14 @@ session_start();
     <a href="<?php echo $voltar; ?>">Voltar</a>
 </body>
 </html>
+<?php 
+    if (isset($_POST['excluir'])) {
+        $id = $_POST['idUsuario'];
+
+        $deleteGarcomQuery = 'DELETE FROM usuario WHERE idUsuario ='.$id;
+        $conexao->query($deleteGarcomQuery);
+        
+        
+        header('Location:garcom.php');
+    }
+?>
