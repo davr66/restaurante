@@ -22,6 +22,10 @@
         $nivel = $nivelArray[0];
         //print_r($sql);
         //print_r($result);
+        $queryNome = "SELECT nome FROM usuario WHERE email = '$email' AND senha = '$senha'";
+        $nome = $conexao->query($queryNome);
+        $nomeArray = mysqli_fetch_array($nome);
+        $nome = $nomeArray[0];
 
         if(mysqli_num_rows($result) < 1)
         {
@@ -34,6 +38,8 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             $_SESSION['nivel'] = $nivel;
+            $_SESSION['nome'] = $nome;
+
             header("Location:sistemagerente.php");
             }
             else
@@ -41,6 +47,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             $_SESSION['nivel'] = $nivel;
+            $_SESSION['nome'] = $nome;
             header("Location:sistemagarcom.php");
             }
         }

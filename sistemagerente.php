@@ -7,7 +7,7 @@ session_start();
         unset($_SESSION['senha']);
         header("Location:login.php");
     }
-    $logado = $_SESSION['email'];
+    $logado = $_SESSION['nome'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,9 +31,13 @@ session_start();
     <br><br><br>
     <a href="produtos.php">Produtos</a>
     <br>
+    <a href="categoria.php">Categorias</a>
+    <br>
     <a href="garcom.php">Garçom</a>
     <br>
     <a href="contas.php">Contas</a>
+    <br>
+    <a href="relatorio.php">Relatório</a>
     <br><br><br>
     <a href="sair.php">Sair</a>
 </body>

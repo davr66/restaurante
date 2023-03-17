@@ -77,30 +77,30 @@ session_start();
 <body>
     <form method="post" action="garcomedit.php">
         <label for="nome">Nome:</label>
-        <input type="text" value="<?php echo $garcom['nome']?>" name="nome">
+        <input type="text" value="<?php echo $garcom['nome'];?>" name="nome">
         <br>
         <label for="email">Email:</label>
-        <input type="text" value="<?php echo $garcom['email']?>" name="email">
+        <input type="text" value="<?php echo $garcom['email'];?>" name="email">
         <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" value="<?php echo $garcom['telefone']?>" name="telefone">
+        <input type="text" value="<?php echo $garcom['telefone'];?>" name="telefone">
         <br>
         <label for="endereço">Endereço:</label>
-        <input type="text" value="<?php echo $garcom['endereco']?>" name="endereço">
+        <input type="text" value="<?php echo $garcom['endereco'];?>" name="endereço">
         <br>
         <label for="cpf">CPF:</label>
-        <input type="text" value="<?php echo $garcom['cpf']?>" name="cpf">
+        <input type="text" value="<?php echo $garcom['cpf'];?>" name="cpf">
         <br>
         <label for="rg">RG:</label>
-        <input type="text" value="<?php echo $garcom['rg']?>" name="rg">
+        <input type="text" value="<?php echo $garcom['rg'];?>" name="rg">
         <br>
         <label for="senha">Senha</label>
-        <input type="password" value="<?php echo $garcom['senha']?>" name="senha">    
+        <input type="password" value="<?php echo $garcom['senha'];?>" name="senha">    
         <br>
         <label for="confirmarSenha">Confirme a sua senha</label>
-        <input type="password" value="<?php echo $garcom['senha']?>" name="confirmarSenha"> 
+        <input type="password" value="<?php echo $garcom['senha'];?>" name="confirmarSenha"> 
         <br>
-        <input type="hidden" value="<?php echo $idGarcom ?>" name="idUsuario">
+        <input type="hidden" value="<?php echo $idGarcom; ?>" name="idUsuario">
         <br>
         <input type="submit" name="update" value="Atualizar">     
 </form> 

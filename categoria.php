@@ -10,10 +10,8 @@ session_start();
     include_once('config.php');
 
     $logado = $_SESSION['email'];
-    $produtosQuery = 'SELECT idProduto,nome,valor,c.nomeCategoria,quantEstoque FROM produto
-    JOIN categoria AS c
-    USING(idCategoria)';
-    $produtos = $conexao->query($produtosQuery);
+    $categoriasQuery = 'SELECT * FROM categoria';
+    $categoria = $conexao->query($categoriasQuery);
 
     if ($_SESSION['nivel']) 
     {
@@ -42,31 +40,25 @@ session_start();
 <body>
     <h3>Produtos</h3>
     <br>
-    <a href="cadastroproduto.php">Novo Produto</a>
+    <a href="cadastroproduto.php">Nova Categoria</a>
     <table>
         <thead>
             <tr>
-                <th>idProd.</th>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Categoria</th>
-                <th>Quant. em Estoque</th>
+                <th>idCategoria</th>
+                <th>nome</th>
             </tr>
         </thead>
         <tbody>
                 <?php 
-                    while ($row = mysqli_fetch_array($produtos)) {
+                    while ($row = mysqli_fetch_array($categoria)) {
                         echo "<tr>";
-                        echo "<td>".$row['idProduto']."</td>";
-                        echo "<td>".$row['nome']."</td>";
-                        echo "<td>".$row['valor']."</td>";
+                        echo "<td>".$row['idCategoria']."</td>";
                         echo "<td>".$row['nomeCategoria']."</td>";
-                        echo "<td>".$row['quantEstoque']."</td>";
                         echo '<th>
-                        <a href="produtosedit.php?idProduto='.$row['idProduto'].'">Editar</a>
+                        <a href="categoriaedit.php?idCategoria='.$row['idCategoria'].'">Editar</a>
                         </th>';
-                        echo '<th> <form method="post" action="produtos.php">
-                        <input type="hidden" name="idProduto" value="'.$row['idProduto'].'">
+                        echo '<th> <form method="post" action="categoria.php">
+                        <input type="hidden" name="idCategoria" value="'.$row['idCategoria'].'">
                         <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
                         echo "</tr>";
                     }
@@ -79,12 +71,12 @@ session_start();
 </html>
 <?php 
     if (isset($_POST['excluir'])) {
-        $id = $_POST['idProduto'];
+        $id = $_POST['idCategoria'];
 
-        $deleteProdutoQuery = 'DELETE FROM produto WHERE idProduto ='.$id;
-        $conexao->query($deleteProdutoQuery);
+        $deleteCategoriaQuery = 'DELETE FROM categoria WHERE idCategoria ='.$id;
+        $conexao->query($deleteCategoriaQuery);
         
         
-        header('Location:produtos.php');
+        header('Location:categoria.php');
     }
 ?>

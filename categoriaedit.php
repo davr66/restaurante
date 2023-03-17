@@ -10,16 +10,25 @@ session_start();
     include_once('config.php');
 
     $logado = $_SESSION['email'];
+
+    if (!empty($_GET)) {
+        $id = $_GET['idCategoria'];
+
+        $categoriaQuery = "SELECT * FROM categoria WHERE idCategoria =".$id;
+        $categoria = $conexao->query($categoriaQuery);
+        $categoria = mysqli_fetch_array($categoria);
+    }
+
     
-    if (isset($_POST['submit'])) 
+    
+    if (isset($_POST['update'])) 
     {
         //print_r($_POST['nome']);
+        $id = $_POST['idCategoria'];
         $nomeCategoria = $_POST['nome'];
 
-        $result = mysqli_query($conexao,"INSERT INTO categoria(nomeCategoria) 
-        VALUES ('$nomeCategoria')");
-                
-        echo "<script>alert('Categoria cadastrada!')</script>";
+        $result = mysqli_query($conexao,"UPDATE categoria SET nomeCategoria = '$nomeCategoria' WHERE idCategoria =".$id);
+        header("Location:categoria.php");
     }
 
     if ($_SESSION['nivel']) 
@@ -40,11 +49,13 @@ session_start();
     <title>Cadastro de Categoria</title>
 </head>
 <body>
-    <form method="post" action="cadastrocategoria.php">
+    <form method="post" action="categoriaedit.php">
         <label for="nome">Nome da Categoria:</label>
-        <input type="text" name="nome">
+        <input type="text" value="<?php echo $categoria['nomeCategoria']; ?>" name="nome">
         <br>
-        <input type="submit" name="submit" value="Enviar">     
+        <input type="hidden" name="idCategoria" value="<?php echo $id;?>">
+        <br>
+        <input type="submit" name="update" value="Atualizar">     
 </form> 
     <a href="<?php echo $voltar; ?>">Voltar</a>
 </body>
