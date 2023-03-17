@@ -1,2 +1,2 @@
-# restaurante
+# Restaurante
 Sistema para restaurantes
