@@ -43,6 +43,7 @@ session_start();
         {
             if($senha == $confirmarSenha)
             {
+                $cpf = preg_replace('/[^0-9]/', "", $cpf);
                 $result = mysqli_query($conexao,"INSERT INTO usuario(nome,telefone,endereco,cpf,rg,email,senha,nivel) 
                 VALUES ('$nome','$telefone','$endereco','$cpf','$rg','$email','$senha',$nivel)");
                 
