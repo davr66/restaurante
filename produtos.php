@@ -59,7 +59,7 @@ session_start();
                         echo "<tr>";
                         echo "<td>".$row['idProduto']."</td>";
                         echo "<td>".$row['nome']."</td>";
-                        echo "<td>".$row['valor']."</td>";
+                        echo "<td>R$".str_replace(".",",",$row['valor'])."</td>";
                         echo "<td>".$row['nomeCategoria']."</td>";
                         echo "<td>".$row['quantEstoque']."</td>";
                         echo '<th>
