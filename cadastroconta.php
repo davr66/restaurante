@@ -42,7 +42,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
     else
     {
-        $voltar="sitemagarcom.php";
+        $voltar="sistemagarcom.php";
     }
 ?>
 <!DOCTYPE html>
