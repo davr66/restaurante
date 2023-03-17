@@ -28,7 +28,7 @@ session_start();
     }
     else
     {
-        $voltar="sitemagarcom.php";
+        $voltar="sistemagarcom.php";
     }
 ?>
 <!DOCTYPE html>
