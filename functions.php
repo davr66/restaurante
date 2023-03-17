@@ -1,5 +1,4 @@
 <?php 
-header('Location:home.php');
 function validarCPF($cpf){
     $cpf = preg_replace('/[^0-9]/', "", $cpf);
     if (strlen($cpf) !== 11 || preg_match('/(\d)\1{10}/', $cpf)) {
