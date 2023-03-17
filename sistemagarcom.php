@@ -26,7 +26,9 @@ session_start();
     <a href="cadastroproduto.php">Novo Produto</a>
     <br>
     <a href="cadastroconta.php">Nova Conta</a>
-    <br><br>
+    <br>
+    <a href="relatorio.php">Relatório</a>
+    <br><br><br>
     <a href="sair.php">Sair</a>
 </body>
 </html>
