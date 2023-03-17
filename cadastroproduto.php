@@ -28,6 +28,7 @@ session_start();
         $nomeProd = $_POST['nome'];
         $porcao = $_POST['porcao'];
         $valor = $_POST['valor'];
+        $valor = str_replace(",",".",$valor);
         $idCategoria = $_POST['categoria'];
         $quantEstoque = $_POST['quantEstoque'];
 
