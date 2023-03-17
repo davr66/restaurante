@@ -40,7 +40,7 @@ session_start();
 <body>
     <h3>Produtos</h3>
     <br>
-    <a href="cadastroproduto.php">Nova Categoria</a>
+    <a href="cadastrocategoria.php">Nova Categoria</a>
     <table>
         <thead>
             <tr>
