@@ -67,7 +67,7 @@ session_start();
                         echo "<th>".$row['horaAbertura']."</th>";
                         echo "<th>".$row['produto']."</th>";
                         echo "<th>".$row['qtd']."</th>";
-                        echo "<th>".$row['valorTotal']."</th>";
+                        echo "<th>R$".str_replace(".",",",$row['valorTotal'])."</th>";
                         echo '<th>
                         <a href="contasedit.php?idConta='.$row['idConta'].'">Editar</a>
                         </th>';
