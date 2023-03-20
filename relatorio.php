@@ -20,7 +20,7 @@ session_start();
     $valorFev = $conexao->query($valorFevQuery);
     $valorFevArray = mysqli_fetch_array($valorFev);
     $valorFev = $valorFevArray[0];
-    $valorFev = str_replace(".",",",$valorFev);
+    $valorFev = str_replace(".",",",str_replace(",","",number_format($valorFev,2)));
 
     if ($valorFev == null) {
         $msg = 'Não há vendas no mês de Fevereiro';

@@ -59,7 +59,8 @@ session_start();
                         </th>';
                         echo '<th> <form method="post" action="categoria.php">
                         <input type="hidden" name="idCategoria" value="'.$row['idCategoria'].'">
-                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
+                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        </form>';
                         echo "</tr>";
                     }
                 ?>

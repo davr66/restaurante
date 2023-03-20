@@ -15,6 +15,7 @@ session_start();
     USING(idCategoria)';
     $produtos = $conexao->query($produtosQuery);
 
+
     if ($_SESSION['nivel']) 
     {
         $voltar="sistemagerente.php";    
@@ -67,7 +68,8 @@ session_start();
                         </th>';
                         echo '<th> <form method="post" action="produtos.php">
                         <input type="hidden" name="idProduto" value="'.$row['idProduto'].'">
-                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
+                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        </form>';
                         echo "</tr>";
                     }
                 ?>

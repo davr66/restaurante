@@ -66,35 +66,37 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Garcom</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <main>
+        <section class="conteudo">
+            <img src="img/LogoOrchid.png" alt="logoTIPO" class="logoT">
+            <div class="conteudo-principal">
+            <h4 class="apresentacao">Cadastrar <mark class="ORCHID">GARÇOM</mark></h4>
     <form method="post" action="cadastrogarcom.php">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome">
-        <br>
+        <input type="text" name="nome" class="caixa-Registro">
         <label for="email">Email:</label>
-        <input type="text" name="email">
-        <br>
+        <input type="text" name="email" class="caixa-Registro">
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone">
-        <br>
+        <input type="text" name="telefone" class="caixa-Registro">
         <label for="endereço">Endereço:</label>
-        <input type="text" name="endereço">
-        <br>
+        <input type="text" name="endereço" class="caixa-Registro">
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf">
-        <br>
+        <input type="text" name="cpf" class="caixa-Registro">
         <label for="rg">RG:</label>
-        <input type="text" name="rg">
-        <br>
+        <input type="text" name="rg" class="caixa-Registro">
         <label for="senha">Senha</label>
-        <input type="password" name="senha">    
-        <br>
+        <input type="password" name="senha" class="caixa-Registro">    
         <label for="confirmarSenha">Confirme a sua senha</label>
-        <input type="password" name="confirmarSenha"> 
-        <br>
-        <input type="submit" name="submit" value="Enviar">     
+        <input type="password" name="confirmarSenha" class="caixa-Registro"> 
+        <input type="submit" name="submit" value="Enviar" class="botao-Env">     
 </form> 
-    <a href="sistemagerente.php">Voltar</a>
+<a href="sistemagerente.php">Voltar</a>
+    </div>
+    </section>
+    </main>
+    <div class="fundoIMG"></div>
 </body>
 </html>

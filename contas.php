@@ -63,17 +63,20 @@ session_start();
                         echo "<tr>";
                         echo "<th>".$row['idConta']."</th>";
                         echo "<th>".$row['garcom']."</th>";
-                        echo "<th>".$row['dataAbertura']."</th>";
+                        $data = date('d/m/Y', strtotime($row['dataAbertura']));
+                        echo "<th>".$data."</th>";
                         echo "<th>".$row['horaAbertura']."</th>";
                         echo "<th>".$row['produto']."</th>";
                         echo "<th>".$row['qtd']."</th>";
-                        echo "<th>R$".str_replace(".",",",$row['valorTotal'])."</th>";
+                        $valorTotal = number_format($row['valorTotal'],2);
+                        echo "<th>R$".str_replace(".",",",str_replace(",","",$valorTotal))."</th>";
                         echo '<th>
                         <a href="contasedit.php?idConta='.$row['idConta'].'">Editar</a>
                         </th>';
                         echo '<th> <form method="post" action="contas.php">
                         <input type="hidden" name="idConta" value="'.$row['idConta'].'">
-                        <input type="submit" id="excluir" value="Deletar" name="excluir"></form>';
+                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        </form>';
                         echo '</tr>';
                     }
                 ?>
