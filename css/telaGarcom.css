@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Gravitas+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+:root{
+    --CorFonte:#242424;
+    --SombraFonte:#9e9e9e;
+}
+
+.fundoIMG{
+    background-image: url("/imgs/fundRes.jpg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+     
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    filter: blur(2px);
+}
+
+ 
+.conteudo{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin: 14% auto 0px;
+}
+.conteudo-principal{
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F1F1;
+    padding: 25px;
+    border-radius: 41px;
+
+    font-family: 'Fira Mono', monospace;
+    font-size: 16px;
+}
+
+.caixa-Registro{
+    height: 39px;
+    width: 294px;
+    padding: 7px;
+    
+    border: none;
+    border-radius: 87px;
+    box-shadow: 0px 0px 7px #2c2c2c;
+
+    font-family: 'Fira Mono', monospace;
+    font-size: 21px;
+    font-weight: 500;
+    
+    margin: 0px 17px;
+    text-align: center;
+}
+
+.caixa-Registro:focus{
+    outline: none;
+}
+
+/*A frase do "Welcome ORCHID"*/
+.apresentacao{
+    font-family:'Fira Mono', monospace;;
+    font-size: 33px;
+    font-weight: 400;
+    text-shadow: 0px 2px 2px var(--SombraFonte);
+    color:var(--CorFonte);
+    
+    opacity: calc(90%);
+
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*A caixa de texto*/
+#TextoC{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    font-family: 'Fredoka', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 black;
+
+    opacity: calc(77%);
+    margin:17px 0px 13px 0px;
+}
+
+
+/*A marcação do ORCHID*/
+.ORCHID{
+    background: none;
+    font-family: 'Gravitas One', cursive;
+    color:#000000;
+    
+    margin-top: -1px;
+}
+
+
+.botao-Env{
+    display: block;
+    margin: 43px auto 0px;
+
+    border: none;
+    color: var(--CorFonte);
+    background-color: #FFFFFF;
+
+    height: 57px;
+    width: 141px;
+    border-radius: 53px;
+    
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    box-shadow: 0px 2px 3px #5e5e5e;
+    
+    padding: 7px 0px;
+    opacity: calc(77%);
+}
+
+.alinhamento {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.botao-Env:hover{
+    background-color: #e4e4e4;
+    transition-duration: 0.3s;
+
+}
+
+label{
+    display: flex;
+    font-family:'Fira Mono', monospace;
+
+}
+label{
+    color:#1a1a1a;
+    font-size: 17px;
+    font-weight: 400;
+    text-shadow: 0px 2px 2px var(--SombraFonte);        
+    
+    opacity: calc(91%);
+    margin-bottom: 5px;
+}
+
+.testao {
+    display: flex;
+}
+
+.testao #TextoC {
+    display: inline;
+    text-align: center;
+}
+
+.testao input{
+    width: 100px;
+}
+
+.test1, .test2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.test1 > input {
+    width: 145px;
+}
