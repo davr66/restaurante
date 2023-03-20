@@ -54,33 +54,48 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/telaProduto.css">
     <title>Cadastro de Produto</title>
 </head>
 <body>
-    <form method="post" action="cadastroproduto.php">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome">
-        <br>
-        <label for="porcao">Porção:</label>
-        <input type="text" name="porcao">
-        <br>
-        <label for="valor">Valor:</label>
-        <input type="text" name="valor">
-        <br>
-        <label for="categoria">Categoria</label>
-        <select name="categoria">
-            <?php 
-                while ($row = mysqli_fetch_array($categoria)) {
-                    echo "<option value=".$row['idCategoria'].">".$row['nomeCategoria']."</option>";
-                }
-            ?>
-        </select>
-        <br>
-        <label for="quantEstoque">Quantidade no Estoque</label>
-        <input type="text" name="quantEstoque">
-        <br>
-        <input type="submit" name="submit" value="Enviar">     
-</form> 
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <main>
+        <div class="conteudo">
+            <section class="conteudo-principal">
+                <h4 class="apresentacao">Cadastro de 
+                <mark class="ORCHID">PRODUTOS</mark>
+                </h4>
+                    <form method="post" action="cadastroproduto.php">
+                        <label for="nome" id="TextoC">Nome:</label>
+                            <input type="text" name="nome" class="caixa-Registro">
+                            <br>
+                            <label for="porcao" id="TextoC">Porção:</label>
+                            <input type="text" name="porcao" class="caixa-Registro">
+                            <br>
+                            <label for="valor" id="TextoC">Valor:</label>
+                            <input type="text" name="valor" class="caixa-Registro">
+                            <br>
+                            <label for="categoria" id="TextoC">Categoria</label>
+                            <select name="categoria" class="caixa-Registro">
+                                <?php 
+                                    while ($row = mysqli_fetch_array($categoria)) {
+                                        echo "<option value=".$row['idCategoria'].">".$row['nomeCategoria']."</option>";
+                                    }
+                                ?>
+                            </select>
+                            <br>
+                            <label for="quantEstoque" id="TextoC">Quantidade no Estoque</label>
+                            <input type="text" name="quantEstoque" class="caixa-Registro">
+                            <br>
+                            <span class="alinhamento">
+                            <input type="submit" name="submit" value="Enviar" class="botao-Env"> 
+                            <button class="botao-Env">
+                            <a href="<?php echo $voltar; ?>">Voltar</a>
+                            </button>
+                            </span>
+                    </form>
+            </section>
+        </div>
+</main> 
+<div class="fundoIMG"></div>
 </body>
 </html>

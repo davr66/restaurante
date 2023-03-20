@@ -31,14 +31,13 @@
     filter: blur(2px);
 }
 
-/*Esse logoT, é o img da empresa e ela é o principal fator para a organização do conteúdo e tamanho*/
  
 .conteudo{
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: center;
-    margin: 10% auto 0px;
+    margin: 14% auto 0px;
 }
 .conteudo-principal{
     display: flex;
@@ -167,4 +166,26 @@ label{
     
     opacity: calc(91%);
     margin-bottom: 5px;
+}
+
+.testao {
+    display: flex;
+}
+
+.testao #TextoC {
+    display: inline;
+    text-align: center;
+}
+
+.testao input{
+    width: 100px;
+}
+
+.test1, .test2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.test1 > input {
+    width: 145px;
 }

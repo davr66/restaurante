@@ -37,15 +37,30 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/telaCategoria.css">
     <title>Cadastro de Categoria</title>
 </head>
 <body>
-    <form method="post" action="cadastrocategoria.php">
-        <label for="nome">Nome da Categoria:</label>
-        <input type="text" name="nome">
-        <br>
-        <input type="submit" name="submit" value="Enviar">     
-</form> 
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <main>
+        <section class="conteudo">
+            <div class="conteudo-principal">
+                <h4 class="apresentacao">Cadastro de
+                    <mark class="ORCHID">CATEGORIA</mark>
+                </h4>
+                <form method="post" action="cadastrocategoria.php">
+                    <label for="nome" id="TextoC">Nome da Categoria</label>
+                    <input type="text" name="nome" class="caixa-Registro">
+                    <br>
+                    <span class="alinhamento">
+                    <input type="submit" name="submit" value="Enviar" class="botao-Env">
+                    <button class="botao-Env">
+                     <a href="<?php echo $voltar; ?>">Voltar</a>
+                    </button>
+                    </span> 
+                    </form> 
+            </div>
+        </section>
+</main>
+<div class="fundoIMG"></div>
 </body>
 </html>

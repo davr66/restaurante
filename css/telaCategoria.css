@@ -14,7 +14,7 @@
 }
 
 .fundoIMG{
-    background-image: url("/imgs/fundRes.jpg");
+    background-image: url("img/fundRes.jpg");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -94,6 +94,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 8px;
     
     font-family: 'Fredoka', sans-serif;
     font-size: 21px;
@@ -136,6 +137,11 @@
     padding: 7px 0px;
     opacity: calc(77%);
 }
+
+.botao-Env > a {
+    color: var(--CorFonte);
+    text-decoration: none;
+  }
 
 .alinhamento {
     display: flex;

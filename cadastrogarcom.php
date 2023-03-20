@@ -66,7 +66,9 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Garcom</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <script defer src="js/main.js"></script>
+</head>
 </head>
 <body>
     <main>
@@ -80,20 +82,23 @@ session_start();
         <label for="email">Email:</label>
         <input type="text" name="email" class="caixa-Registro">
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" class="caixa-Registro">
+        <input type="text" id="telefone" maxlength="15" name="telefone" class="caixa-Registro">
         <label for="endereço">Endereço:</label>
         <input type="text" name="endereço" class="caixa-Registro">
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" class="caixa-Registro">
+        <input type="text" maxLength="11" id="cpf" name="cpf" class="caixa-Registro">
         <label for="rg">RG:</label>
         <input type="text" name="rg" class="caixa-Registro">
         <label for="senha">Senha</label>
         <input type="password" name="senha" class="caixa-Registro">    
         <label for="confirmarSenha">Confirme a sua senha</label>
         <input type="password" name="confirmarSenha" class="caixa-Registro"> 
-        <input type="submit" name="submit" value="Enviar" class="botao-Env">     
+        <input type="submit" name="submit" value="Enviar" class="botao-Env"> 
+        <button class="botao-Env">
+        <a href="sistemagerente.php">Voltar</a>
+        </button>    
 </form> 
-<a href="sistemagerente.php">Voltar</a>
+
     </div>
     </section>
     </main>

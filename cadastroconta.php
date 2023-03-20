@@ -51,34 +51,45 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/telaConta.css">
     <title>Cadastro de Conta</title>
 </head>
 <body>
-    <form method="post" action="cadastroconta.php">
-        <label for="garcom">Garçom:</label>
-        <select name="garcom">
-            <?php 
-                while ($row = mysqli_fetch_array($garcom)) {
-                    echo "<option value=".$row['idUsuario'].">".$row['nome']."</option>";
-                }
-            ?>
-        </select>
-        <br>
-        <label for="produto">Produto:</label>
-        <select name="produto">
-            <?php
-                while ($row = mysqli_fetch_array($produtos)) 
-                {
-                    echo "<option value=".$row['idProduto'].">".$row['nome']."</option>";
-                }
-            ?>
-        </select>
-        <label for="qtd">Quant.</label>
-        <input type="number" name="qtd">
-        <br>
-        <br>
-        <input type="submit" name="submit" value="Enviar">     
-</form> 
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <h4 class="apresentacao">Cadastro de 
+                <mark class="ORCHID">CONTAS</mark>
+            </h4>
+            <form method="post" action="cadastroconta.php">
+                <label for="garcom" id="TextoC">Garçom:</label>
+                <select name="garcom" class="caixa-Registro">
+                    <?php 
+                        while ($row = mysqli_fetch_array($garcom)) {
+                            echo "<option value=".$row['idUsuario'].">".$row['nome']."</option>";
+                        }
+                    ?>
+                </select>
+                <br>
+                <label for="produto" id="TextoC">Produto:</label>
+                <select name="produto" class="caixa-Registro">
+                    <?php
+                        while ($row = mysqli_fetch_array($produtos)) 
+                        {
+                            echo "<option value=".$row['idProduto'].">".$row['nome']."</option>";
+                        }
+                    ?>
+                </select>
+                <label for="qtd" id="TextoC">Quant.</label>
+                <input type="number" name="qtd" class="caixa-Registro">
+                <span class="alinhamento">
+                <input type="submit" name="submit" value="Enviar" class="botao-Env">     
+                <button class="botao-Env">
+                <a href="<?php echo $voltar; ?>">Voltar</a>
+                </button>
+                </span>     
+            </form>
+        </section>
+    </main>
+    <div class="fundoIMG"></div>
 </body>
 </html>
