@@ -82,10 +82,8 @@ date_default_timezone_set('America/Sao_Paulo');
                 <label for="qtd" id="TextoC">Quant.</label>
                 <input type="number" name="qtd" class="caixa-Registro">
                 <span class="alinhamento">
-                <input type="submit" name="submit" value="Enviar" class="botao-Env">     
-                <button class="botao-Env">
-                <a href="<?php echo $voltar; ?>">Voltar</a>
-                </button>
+                <input type="submit" name="submit" value="Enviar" class="botao-Env">
+                <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>
                 </span>     
             </form>
         </section>

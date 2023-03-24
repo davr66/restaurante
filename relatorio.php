@@ -36,7 +36,7 @@ session_start();
     }
     else
     {
-        $voltar="sitemagarcom.php";
+        $voltar="sistemagarcom.php";
     }
 ?>
 <!DOCTYPE html>
@@ -53,6 +53,6 @@ session_start();
     <p>Produtos Cadastrados: <?php echo $numProdutos; ?></p>
     <br>
     <p><?php echo $msg;?></p>
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </body>
 </html>

@@ -12,12 +12,12 @@
         <section class="conteudo">
             <img src="img/LogoOrchid.png" alt="logoTIPO" class="logoT">
             <div class="conteudo-principal">
-            <h4 class="apresentacao">Welcome <mark class="ORCHID">ORCHID</mark></h4>
+            <h4 class="apresentacao"><mark class="ORCHID">Bem Vindo!</mark></h4>
     <form method="post" action="testeLogin.php">
             <label for="email">Email:</label>
             <input name="email" type="text" placeholder required class="caixa-Registro">
             <br>
-            <label for="senha">Senha</label>
+            <label for="senha">Senha:</label>
             <input type="password" name="senha" required class="caixa-Registro">
             <br>
             <input type="submit" name="submit" value="Enviar" class="botao-Env">

@@ -19,7 +19,7 @@ session_start();
     }
     else
     {
-        $voltar="sitemagarcom.php";
+        $voltar="sistemagarcom.php";
     }
 
 ?>
@@ -67,7 +67,7 @@ session_start();
         </tbody>
     </table>
     <br>
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </body>
 </html>
 <?php 

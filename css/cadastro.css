@@ -124,11 +124,17 @@
     padding: 7px 0px;
 }
 
+.botao-Env > a {
+    color: var(--CorFonte);
+    text-decoration: none;
+  }
+  
 .botao-Env:hover{
     background-color: #e4e4e4;
     transition-duration: 0.3s;
 
 }
+
 
 label{
     display: flex;

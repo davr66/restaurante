@@ -53,9 +53,7 @@ session_start();
                     <br>
                     <span class="alinhamento">
                     <input type="submit" name="submit" value="Enviar" class="botao-Env">
-                    <button class="botao-Env">
-                     <a href="<?php echo $voltar; ?>">Voltar</a>
-                    </button>
+                    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
                     </span> 
                     </form> 
             </div>

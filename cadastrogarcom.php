@@ -79,24 +79,31 @@ session_start();
     <form method="post" action="cadastrogarcom.php">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" class="caixa-Registro">
+
         <label for="email">Email:</label>
         <input type="text" name="email" class="caixa-Registro">
+
         <label for="telefone">Telefone:</label>
         <input type="text" id="telefone" maxlength="15" name="telefone" class="caixa-Registro">
+
         <label for="endereço">Endereço:</label>
         <input type="text" name="endereço" class="caixa-Registro">
+
         <label for="cpf">CPF:</label>
-        <input type="text" maxLength="11" id="cpf" name="cpf" class="caixa-Registro">
+        <input type="text" maxLength="14" id="cpf" name="cpf" class="caixa-Registro">
+
         <label for="rg">RG:</label>
-        <input type="text" name="rg" class="caixa-Registro">
+        <input type="text" maxLength="10" name="rg" class="caixa-Registro">
+
         <label for="senha">Senha</label>
         <input type="password" name="senha" class="caixa-Registro">    
+
         <label for="confirmarSenha">Confirme a sua senha</label>
         <input type="password" name="confirmarSenha" class="caixa-Registro"> 
+
         <input type="submit" name="submit" value="Enviar" class="botao-Env"> 
-        <button class="botao-Env">
-        <a href="sistemagerente.php">Voltar</a>
-        </button>    
+
+        <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </form> 
 
     </div>

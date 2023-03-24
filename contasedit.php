@@ -58,7 +58,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
     else
     {
-        $voltar="sitemagarcom.php";
+        $voltar="sistemagarcom.php";
     }
 ?>
 <!DOCTYPE html>
@@ -98,6 +98,6 @@ date_default_timezone_set('America/Sao_Paulo');
         <br>
         <input type="submit" name="update" value="Atualizar">     
 </form> 
-    <a href="<?php echo $voltar; ?>">Voltar</a>
+    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </body>
 </html>

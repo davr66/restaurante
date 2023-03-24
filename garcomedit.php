@@ -104,6 +104,6 @@ session_start();
         <br>
         <input type="submit" name="update" value="Atualizar">     
 </form> 
-    <a href="sistemagerente.php">Voltar</a>
+    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </body>
 </html>
