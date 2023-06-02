@@ -67,12 +67,18 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Conta</title>
+    <link rel="stylesheet" href="css/telaConta.css">
+    <title>Editar Conta</title>
 </head>
 <body>
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <h4 class="apresentacao">Editar 
+                <mark class="ORCHID">CONTA</mark>
+            </h4>
     <form method="post" action="contasedit.php">
-        <label for="garcom">Garçom:</label>
-        <select name="garcom">
+        <label for="garcom" id="TextoC">Garçom:</label>
+        <select name="garcom" class="caixa-Registro">
             <option value = "<?php echo $contas['idUsuario']; ?>" ><?php echo $contas['nomeGarcom']?></option>
             <?php 
                 while ($row = mysqli_fetch_array($garcom)) {
@@ -81,8 +87,8 @@ date_default_timezone_set('America/Sao_Paulo');
             ?>
         </select>
         <br>
-        <label for="produto">Produto:</label>
-        <select name="produto">
+        <label for="produto" id="TextoC">Produto:</label>
+        <select name="produto" class="caixa-Registro">
             <option value="<?php echo $contas['idProduto']?>"><?php echo $contas['nomeProd'] ?></option>
             <?php
                 while ($row = mysqli_fetch_array($produtos)) 
@@ -91,13 +97,18 @@ date_default_timezone_set('America/Sao_Paulo');
                 }
             ?>
         </select>
-        <label for="qtd">Quant.</label>
-        <input type="number" value="<?php echo $contas['qtd']?>" name="qtd">
+        <label for="qtd" id="TextoC">Quant.</label>
+        <input type="number" class="caixa-Registro" value="<?php echo $contas['qtd']?>" name="qtd">
         <br>
-        <input type="hidden" name="idConta" value="<?php echo $idConta ?>">
+        <input type="hidden" class="caixa-Registro" name="idConta" value="<?php echo $idConta ?>">
         <br>
-        <input type="submit" name="update" value="Atualizar">     
+        <span class="alinhamento">
+        <input type="submit" class="botao-Env" name="update" value="Atualizar">  
+        <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>   
+        </span>  
 </form> 
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+</section>
+    </main>
+    <div class="fundoIMG"></div>
 </body>
 </html>

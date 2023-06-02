@@ -72,38 +72,50 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edição de Garcom</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Edição de Garçom</title>
 </head>
 <body>
+    <main>
+        <section class="conteudo">
+            <img src="img/LogoOrchid.png" alt="logoTIPO" class="logoT">
+            <div class="conteudo-principal">
+            <h4 class="apresentacao">Editar
+                <mark class="ORCHID">GARÇOM</mark>
+                </h4>
     <form method="post" action="garcomedit.php">
         <label for="nome">Nome:</label>
-        <input type="text" value="<?php echo $garcom['nome'];?>" name="nome">
+        <input type="text" value="<?php echo $garcom['nome'];?>" class="caixa-Registro" name="nome">
         <br>
         <label for="email">Email:</label>
-        <input type="text" value="<?php echo $garcom['email'];?>" name="email">
+        <input type="text" value="<?php echo $garcom['email'];?>" class="caixa-Registro" name="email">
         <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" value="<?php echo $garcom['telefone'];?>" name="telefone">
+        <input type="text" value="<?php echo $garcom['telefone'];?>" class="caixa-Registro" name="telefone">
         <br>
         <label for="endereço">Endereço:</label>
-        <input type="text" value="<?php echo $garcom['endereco'];?>" name="endereço">
+        <input type="text" value="<?php echo $garcom['endereco'];?>" class="caixa-Registro" name="endereço">
         <br>
         <label for="cpf">CPF:</label>
-        <input type="text" value="<?php echo $garcom['cpf'];?>" name="cpf">
+        <input type="text" value="<?php echo $garcom['cpf'];?>" class="caixa-Registro" name="cpf">
         <br>
         <label for="rg">RG:</label>
-        <input type="text" value="<?php echo $garcom['rg'];?>" name="rg">
+        <input type="text" value="<?php echo $garcom['rg'];?>" class="caixa-Registro" name="rg">
         <br>
         <label for="senha">Senha</label>
-        <input type="password" value="<?php echo $garcom['senha'];?>" name="senha">    
+        <input type="password" value="<?php echo $garcom['senha'];?>" class="caixa-Registro" name="senha">    
         <br>
         <label for="confirmarSenha">Confirme a sua senha</label>
-        <input type="password" value="<?php echo $garcom['senha'];?>" name="confirmarSenha"> 
+        <input type="password" value="<?php echo $garcom['senha'];?>" class="caixa-Registro" name="confirmarSenha"> 
         <br>
-        <input type="hidden" value="<?php echo $idGarcom; ?>" name="idUsuario">
+        <input type="hidden" value="<?php echo $idGarcom; ?>" class="caixa-Registro" name="idUsuario">
         <br>
-        <input type="submit" name="update" value="Atualizar">     
+        <input type="submit" name="update" value="Atualizar" class="botao-Env">     
+
+        <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
 </form> 
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
-</body>
+</div>
+    </section>
+    </main>
+    <div class="fundoIMG"></div>
 </html>

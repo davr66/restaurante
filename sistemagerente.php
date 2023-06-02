@@ -15,30 +15,31 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante - Lotus</title>
+    <link rel="stylesheet" href="./css/telaSistemaGeral.css">
+        <title>Restaurante - Lotus</title>
 </head>
 <body>
     <?php
-        echo "<h3>Bem Vindo(a) <u>$logado</u></h3>";
+        echo '<div class="titulo">Bem Vindo(a) '.$logado.'</div>';
     ?>
     <a href="cadastrogarcom.php">Cadastrar Garçom</a>
-    <br>
+    
     <a href="cadastrocategoria.php">Nova Categoria</a>
-    <br>
+    
     <a href="cadastroproduto.php">Novo Produto</a>
-    <br>
+    
     <a href="cadastroconta.php">Nova Conta</a>
-    <br><br><br>
+    
     <a href="produtos.php">Produtos</a>
-    <br>
+    
     <a href="categoria.php">Categorias</a>
-    <br>
+    
     <a href="garcom.php">Garçom</a>
-    <br>
+    
     <a href="contas.php">Contas</a>
-    <br>
+    
     <a href="relatorio.php">Relatório</a>
-    <br><br><br>
+    
     <a href="sair.php">Sair</a>
 </body>
 </html>

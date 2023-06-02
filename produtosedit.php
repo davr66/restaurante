@@ -67,21 +67,28 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/telaProduto.css">
     <title>Edição de Produto</title>
 </head>
 <body>
+    <main>
+        <div class="conteudo">
+            <section class="conteudo-principal">
+            <h4 class="apresentacao">Edição de 
+                <mark class="ORCHID">PRODUTOS</mark>
+                </h4>
     <form method="post" action="produtosedit.php">
-        <label for="nome">Nome:</label>
-        <input type="text" value ="<?php echo $produtos['nome'];?>" name="nome">
+        <label for="nome" id="TextoC">Nome:</label>
+        <input type="text" class="caixa-Registro" value ="<?php echo $produtos['nome'];?>" name="nome">
         <br>
-        <label for="porcao">Porção:</label>
-        <input type="text" value="<?php echo $produtos['porcao']; ?>" name="porcao">
+        <label for="porcao" id="TextoC">Porção:</label>
+        <input type="text" class="caixa-Registro" value="<?php echo $produtos['porcao']; ?>" name="porcao">
         <br>
-        <label for="valor">Valor:</label>
-        <input type="text" value="<?php echo $produtos['valor']; ?>" name="valor">
+        <label for="valor" id="TextoC">Valor:</label>
+        <input type="text" class="caixa-Registro" value="<?php echo $produtos['valor']; ?>" name="valor">
         <br>
-        <label for="categoria">Categoria</label>
-        <select name="categoria">
+        <label for="categoria" id="TextoC">Categoria</label>
+        <select name="categoria" class="caixa-Registro">
             <option value="<?php echo $produtos['idCategoria']?>">
             <?php echo $produtos['nomeCategoria']?></option>
             <?php 
@@ -91,13 +98,19 @@ session_start();
             ?>
         </select>
         <br>
-        <label for="quantEstoque">Quantidade no Estoque</label>
-        <input type="number" value="<?php echo $produtos['quantEstoque'];?>" name="quantEstoque">
+        <label for="quantEstoque" id="TextoC">Quantidade no Estoque</label>
+        <input type="number" class="caixa-Registro" value="<?php echo $produtos['quantEstoque'];?>" name="quantEstoque">
         <br>
         <input type="hidden" name="idProduto" value="<?php echo $idProd;?>">
         <br>
-        <input type="submit" name="update" value="Atualizar">     
+        <span class="alinhamento">
+        <input type="submit" class="botao-Env" name="update" value="Atualizar"> 
+        <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>      
+        </span>
 </form> 
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+</section>
+        </div>
+</main> 
+<div class="fundoIMG"></div>
 </body>
 </html>

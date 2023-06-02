@@ -27,7 +27,7 @@ session_start();
     }
     else
     {
-        $msg = "Valor recebido no mês de Fevereiro: R$ ". $valorFev;
+        $msg = 'Valor recebido no mês de Fevereiro:<div class="linha">R$'. $valorFev."</div>";
     }
 
     if ($_SESSION['nivel']) 
@@ -44,15 +44,16 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/telaRelatorio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório</title>
 </head>
 <body>
-    <h3>Relatório</h3>
-    <br>
-    <p>Produtos Cadastrados: <?php echo $numProdutos; ?></p>
-    <br>
-    <p><?php echo $msg;?></p>
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+    <h3 class="titulo">Relatório</h3>
+    <div class="conteudo-Geral">
+        <p class="sub-titulo">Produtos Cadastrados: <?php echo '<div class="linha">'.$numProdutos.'</div>'; ?></p>
+        <p class="sub-titulo1"><?php echo $msg;?></p>
+        <button class="botao-" onclick="javascript:history.go(-1)">Voltar</button>
+    </div>
 </body>
 </html>

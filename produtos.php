@@ -32,51 +32,48 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tabela.css">
     <title>Produtos</title>
 </head>
-<style>
-    table,td,th {
-        border:1px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <body>
-    <h3>Produtos</h3>
-    <br>
-    <a href="cadastroproduto.php">Novo Produto</a>
-    <table>
-        <thead>
-            <tr>
-                <th>idProd.</th>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Categoria</th>
-                <th>Quant. em Estoque</th>
-            </tr>
-        </thead>
-        <tbody>
+    
+    <div class="tituloBot">
+        <a class="botTit" href="<?php echo $voltar; ?>">Página Inicial</a>
+        <h3>PRODUTOS</h3>
+        <a href="cadastroproduto.php" class="botTit">Novo Produto</a>
+    </div>
+    
+  
+        <div class="grupo">
+            <div class="sub-grupo">idProd.</div>
+            <div class="sub-grupo">Nome</div>
+            <div class="sub-grupo">Valor</div>
+            <div class="sub-grupo">Categoria</div>
+            <div class="sub-grupo">Quant. em Estoque</div> 
+            </div>
+
                 <?php 
                     while ($row = mysqli_fetch_array($produtos)) {
-                        echo "<tr>";
-                        echo "<td>".$row['idProduto']."</td>";
-                        echo "<td>".$row['nome']."</td>";
-                        echo "<td>R$".str_replace(".",",",$row['valor'])."</td>";
-                        echo "<td>".$row['nomeCategoria']."</td>";
-                        echo "<td>".$row['quantEstoque']."</td>";
-                        echo '<th>
-                        <a href="produtosedit.php?idProduto='.$row['idProduto'].'">Editar</a>
-                        </th>';
-                        echo '<th> <form method="post" action="produtos.php">
+                        echo '<div class="grupo2">';
+                        echo '<div class="sub-grupo2">'.$row['idProduto']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['nome']."</div>";
+                        echo '<div class="sub-grupo2">R$'.str_replace(".",",",$row['valor'])."</div>";
+                        echo '<div class="sub-grupo2">'.$row['nomeCategoria']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['quantEstoque']."</div>";
+                        echo '
+                        <a class="sub-grupo2"href="produtosedit.php?idProduto=' .$row['idProduto'].'">Editar</a>';
+                        
+                        echo '<div class="sub-grupo2"> <form method="post" action="delete.php">
                         <input type="hidden" name="idProduto" value="'.$row['idProduto'].'">
-                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        <input type="submit" value="Deletar" name="excluirProd" onClick="return confirm(\'Você tem certeza?\');">
                         </form>';
-                        echo "</tr>";
+                        echo "</div>";
+                        echo '</div>';
                     }
                 ?>
-        </tbody>
     </table>
-    <br>
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+
 </body>
 </html>
 <?php 
@@ -87,6 +84,6 @@ session_start();
         $conexao->query($deleteProdutoQuery);
         
         
-        header('Location:produtos.php');
+        header("Location:produtos.php");
     }
 ?>

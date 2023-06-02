@@ -29,55 +29,42 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Categorias</title>
+    <link rel="stylesheet" href="./css/tabelaG.css">
 </head>
-<style>
-    table,td,th {
-        border:1px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <body>
-    <h3>Produtos</h3>
-    <br>
-    <a href="cadastrocategoria.php">Nova Categoria</a>
+    <div class="tituloBot">        
+        <a class="botTit" href="<?php echo $voltar; ?>">Página Inicial</a>
+        <h3>CATEGORIAS</h3>
+        <a href="cadastrocategoria.php" class="botTit">Nova Categoria</a>
+    </div>
+
     <table>
-        <thead>
-            <tr>
-                <th>idCategoria</th>
-                <th>nome</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="grupo">
+                <div class="sub-grupo">idCategoria</div>
+                <div class="sub-grupo">nome</div>
+
+            </div>
+
                 <?php 
                     while ($row = mysqli_fetch_array($categoria)) {
-                        echo "<tr>";
-                        echo "<td>".$row['idCategoria']."</td>";
-                        echo "<td>".$row['nomeCategoria']."</td>";
-                        echo '<th>
-                        <a href="categoriaedit.php?idCategoria='.$row['idCategoria'].'">Editar</a>
-                        </th>';
-                        echo '<th> <form method="post" action="categoria.php">
+                        echo '<div class="grupo2">';
+                        echo '<div class="sub-grupo2">'.$row['idCategoria']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['nomeCategoria']."</div>";
+                        echo '<a href="categoriaedit.php?idCategoria='.$row['idCategoria'].'" class="sub-grupo2">Editar</a>
+                        ';
+                        echo '<div class="sub-grupo2"> <form method="post" action="delete.php">
                         <input type="hidden" name="idCategoria" value="'.$row['idCategoria'].'">
-                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        <input type="submit" value="Deletar" name="excluirCat" onClick="return confirm(\'Você tem certeza?\');">
                         </form>';
-                        echo "</tr>";
+                        echo "</div>";
+                        echo '</div>';
                     }
                 ?>
-        </tbody>
+
     </table>
     <br>
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+    
 </body>
 </html>
-<?php 
-    if (isset($_POST['excluir'])) {
-        $id = $_POST['idCategoria'];
-
-        $deleteCategoriaQuery = 'DELETE FROM categoria WHERE idCategoria ='.$id;
-        $conexao->query($deleteCategoriaQuery);
-        
-        
-        header('Location:categoria.php');
-    }
-?>

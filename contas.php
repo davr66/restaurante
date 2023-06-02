@@ -31,6 +31,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/./tabelaC.css">
     <title>Contas</title>
 </head>
 <style>
@@ -40,60 +41,44 @@ session_start();
     }
 </style>
 <body>
-    <h3>Contas</h3>
-    <br>
-    <a href="cadastroconta.php">Nova Conta</a>
-    <table>
-        <thead>
-            <tr>
-                <th>idConta</th>
-                <th>Garçom</th>
-                <th>Data Abertura</th>
-                <th>Hora Abertura</th>
-                <th>Produto</th>
-                <th>Quant.</th>
-                <th>Valor Total</th>
-                <th>...</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <div class="tituloBot">
+        <a class="botTit" href="<?php echo $voltar; ?>">Página Inicial</a>
+        <h3>CONTAS</h3>
+        <a href="cadastroconta.php" class="botTit">Nova Conta</a>
+        
+    </div>
+            <div class="grupo">
+                <div class="sub-grupo">idConta</div>
+                <div class="sub-grupo">Garçom</div>
+                <div class="sub-grupo">Data Abertura</div>
+                <div class="sub-grupo">Hora Abertura</div>
+                <div class="sub-grupo">Produto</div>
+                <div class="sub-grupo">Quant.</div>
+                <div class="sub-grupo">Valor Total</div>
+            </div>
+    
                 <?php 
                     while ($row = mysqli_fetch_array($contas)) 
                     {
-                        echo "<tr>";
-                        echo "<th>".$row['idConta']."</th>";
-                        echo "<th>".$row['garcom']."</th>";
+                        echo '<div class="grupo2">';
+                        echo '<div class="sub-grupo2">'.$row['idConta']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['garcom']."</div>";
                         $data = date('d/m/Y', strtotime($row['dataAbertura']));
-                        echo "<th>".$data."</th>";
-                        echo "<th>".$row['horaAbertura']."</th>";
-                        echo "<th>".$row['produto']."</th>";
-                        echo "<th>".$row['qtd']."</th>";
+                        echo '<div class="sub-grupo2">'.$data."</div>";
+                        echo '<div class="sub-grupo2">'.$row['horaAbertura']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['produto']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['qtd']."</div>";
                         $valorTotal = number_format($row['valorTotal'],2);
-                        echo "<th>R$".str_replace(".",",",str_replace(",","",$valorTotal))."</th>";
-                        echo '<th>
-                        <a href="contasedit.php?idConta='.$row['idConta'].'">Editar</a>
-                        </th>';
-                        echo '<th> <form method="post" action="contas.php">
+                        echo '<div class="sub-grupo2">R$'.str_replace(".",",",str_replace(",","",$valorTotal))."</div>";
+                        echo '<a class="sub-grupo2" href="contasedit.php?idConta='.$row['idConta'].'">Editar</a>';
+                        echo '<form method="post" action="delete.php" class="sub-grupo2">
                         <input type="hidden" name="idConta" value="'.$row['idConta'].'">
-                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        <input type="submit" value="Deletar" name="excluirConta" onClick="return confirm(\'Você tem certeza?\');">
                         </form>';
-                        echo '</tr>';
+                        echo '</div>';
                     }
                 ?>
-        </tbody>
-    </table>
-    <br>
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+
 </body>
 </html>
-<?php 
-    if (isset($_POST['excluir'])) {
-        $id = $_POST['idConta'];
-
-        $deleteContaQuery = 'DELETE FROM conta WHERE idConta ='.$id;
-        $conexao->query($deleteContaQuery);
-        
-        
-        header('Location:contas.php');
-    }
-?>

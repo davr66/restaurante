@@ -78,28 +78,28 @@ session_start();
             <h4 class="apresentacao">Cadastrar <mark class="ORCHID">GARÇOM</mark></h4>
     <form method="post" action="cadastrogarcom.php">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" class="caixa-Registro">
+        <input type="text" name="nome" class="caixa-Registro" required>
 
         <label for="email">Email:</label>
-        <input type="text" name="email" class="caixa-Registro">
+        <input type="text" name="email" class="caixa-Registro" required>
 
         <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" maxlength="15" name="telefone" class="caixa-Registro">
+        <input type="text" id="telefone" maxlength="15" name="telefone" class="caixa-Registro" required>
 
         <label for="endereço">Endereço:</label>
-        <input type="text" name="endereço" class="caixa-Registro">
+        <input type="text" name="endereço" class="caixa-Registro" required>
 
         <label for="cpf">CPF:</label>
-        <input type="text" maxLength="14" id="cpf" name="cpf" class="caixa-Registro">
+        <input type="text" maxLength="14" id="cpf" name="cpf" class="caixa-Registro" required>
 
         <label for="rg">RG:</label>
-        <input type="text" maxLength="10" name="rg" class="caixa-Registro">
+        <input type="text" maxLength="10" name="rg" class="caixa-Registro" required>
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" class="caixa-Registro">    
+        <input type="password" name="senha" class="caixa-Registro" required>    
 
         <label for="confirmarSenha">Confirme a sua senha</label>
-        <input type="password" name="confirmarSenha" class="caixa-Registro"> 
+        <input type="password" name="confirmarSenha" class="caixa-Registro" required> 
 
         <input type="submit" name="submit" value="Enviar" class="botao-Env"> 
 

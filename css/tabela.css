@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Julius+Sans+One&family=Kumar+One&display=swap');
+
+.MenuTab,.botM,.tituloBot,.botTit,.grupo,.sub-grupo,.grupo2,.sub-grupo2{
+    display: flex;
+}
+
+:root{
+    --CorFonte:#525252;
+    --CorTitu:#323232;
+    --Caixatab:#FAFAFA;
+    --Caixatab2:#D9D9D9;
+}
+
+body{
+    background-color: #ECECEC;
+}
+
+
+/* Botões junto com título */
+.tituloBot {
+    justify-content: space-between;
+}
+
+.tituloBot > button {
+    border: none;
+    height: fit-content;
+}
+
+.tituloBot > h3 {
+    font-family: 'Kumar One', cursive;
+    color: var(--CorTitu);
+    font-size: 23px;
+    padding-left: 92px;
+}
+
+.botTit {
+    font-family: 'Inter', sans-serif;
+    font-size: 23px;
+    color: var(--CorFonte);
+    text-decoration: none;
+    
+    border-radius: 8px;
+    box-shadow: 0px 0px 1px #000000;
+    background-color: var(--Caixatab);
+    
+    height: 24px;
+    margin: 0px 41px;
+    padding: 10px;
+}
+
+/* REAÇÕES DE BOTÕES */
+.botTit:hover{
+    background-color: #d1d1d1;
+    transition: 0.3s;
+}
+
+/* TABELA */
+.grupo{
+    align-content:space-around;
+    justify-content: space-between;
+
+    height: auto;
+    width: 58%;
+    
+    padding: 0px;
+    margin: 0px 0px 0px 41px;
+}
+
+.sub-grupo{
+    font-family:'Julius Sans One', sans-serif;
+    font-size: 22px;
+    color: var(--CorFonte);
+    white-space: nowrap;
+    
+    width: 0px;
+    margin-bottom: 5px;   
+}
+
+.grupo2{
+    align-content: space-around;
+    justify-content: space-between;
+
+    height: auto;
+    width: 87%;
+    
+    margin: 14px 0px 0px 41px;
+    padding: 34px 116px 31px 17px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    
+    background-color: var(--Caixatab);
+    color: var(--CorFonte);
+    box-shadow: 0px 1px 3px #a9a8a8;
+}
+
+.sub-grupo2{
+    /* SERVE PRA REMOVER O ESPAÇO DO CONTEÚDO */
+    width: 0px;
+}
+.sub-grupo2 > input {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background: 0px;
+    color: var(--CorFonte);
+    font-size: 20px;
+}
+
+a.sub-grupo2 {
+    text-decoration: none;
+    color: var(--CorFonte);
+}

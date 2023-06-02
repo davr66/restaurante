@@ -27,66 +27,48 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tabelaGarç.css">
     <title>Garçons</title>
 </head>
-<style>
-    table,td,th {
-        border:1px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <body>
-    <h3>Garçons</h3>
-    <br>
-    <a href="cadastrogarcom.php">Novo Garçom</a>
-    <table>
-        <thead>
-            <tr>
-                <th>idUser</th>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>CPF</th>
-                <th>RG</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="tituloBot">
+    <a class="botTit" href="<?php echo $voltar; ?>">Página Inicial</a>
+        <h3>GARÇONS</h3>
+        <a href="cadastrogarcom.php" class="botTit">Novo Garçom</a>
+    </div>
+           
+                <div class="grupo">
+                    <div class="sub-grupo">idUser</div>
+                    <div class="sub-grupo">Nome</div>
+                    <div class="sub-grupo">Telefone</div>
+                    <div class="sub-grupo">Endereço</div>
+                    <div class="sub-grupo">CPF</div>
+                    <div class="sub-grupo">RG</div>
+                    <div class="sub-grupo">Email</div>
+                </div>
+            
+        
                 <?php 
                     while ($row = mysqli_fetch_array($garcom)) {
-                        echo "<tr>";
-                        echo "<td>".$row['idUsuario']."</td>";
-                        echo "<td>".$row['nome']."</td>";
-                        echo "<td>".$row['telefone']."</td>";
-                        echo "<td>".$row['endereco']."</td>";
-                        echo "<td>".$row['cpf']."</td>";
-                        echo "<td>".$row['rg']."</td>";
-                        echo "<td>".$row['email']."</td>";
-                        echo '<th>
-                        <a href="garcomedit.php?idUsuario='.$row['idUsuario'].'">Editar</a>
-                        </th>';
-                        echo '<th> <form method="post" action="garcom.php">
+                        echo '<div class="grupo2">';
+                        echo '<div class="sub-grupo2">'.$row['idUsuario']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['nome']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['telefone']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['endereco']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['cpf']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['rg']."</div>";
+                        echo '<div class="sub-grupo2">'.$row['email']."</div>";
+                        echo ' <a class="sub-grupo2" href="garcomedit.php?idUsuario='.$row['idUsuario'].'">Editar</a>';
+                        echo '<form method="post" action="delete.php" class="sub-grupo2">
                         <input type="hidden" name="idUsuario" value="'.$row['idUsuario'].'">
-                        <input type="submit" value="Deletar" name="excluir" onClick="return confirm(\'Você tem certeza?\');">
+                        <input type="submit" value="Deletar" name="excluirUser" onClick="return confirm(\'Você tem certeza?\');">
                         </form>';
-                        echo "</tr>";
-                        echo "</tr>";
+                        echo "</div>";
+                        echo "</div>";
                     }
                 ?>
-        </tbody>
-    </table>
-    <br>
-    <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>  
+
+      
 </body>
 </html>
-<?php 
-    if (isset($_POST['excluir'])) {
-        $id = $_POST['idUsuario'];
-
-        $deleteGarcomQuery = 'DELETE FROM usuario WHERE idUsuario ='.$id;
-        $conexao->query($deleteGarcomQuery);
-        
-        
-        header('Location:garcom.php');
-    }
-?>
