@@ -27,13 +27,29 @@ date_default_timezone_set('America/Sao_Paulo');
         $prod_array = mysqli_fetch_array($prod_query);
         $valor = $prod_array[0];
 
-        $valorTotal = $valor * $qtd;
+        $prod_qtd_query = 'SELECT quantEstoque FROM produto WHERE idProduto = '.$prod;
+        $prod_qtd_query = $conexao->query($prod_qtd_query);
+        $qtd_array = mysqli_fetch_array($prod_qtd_query);
+        $qtdProd = $qtd_array[0];
 
-        $result = mysqli_query($conexao,"INSERT INTO conta(dataAbertura,horaAbertura,idUsuario,idProduto,qtd,valorTotal) 
-        VALUES ($data,$hora,$garcom,$prod,$qtd,$valorTotal)");
-        header('Location:contas.php');
+        if ($qtd <= $qtdProd) {
+            $valorTotal = $valor * $qtd;
+            $result = mysqli_query($conexao,"INSERT INTO conta(dataAbertura,horaAbertura,idUsuario,idProduto,qtd,valorTotal) 
+            VALUES ($data,$hora,$garcom,$prod,$qtd,$valorTotal)");
 
+            $qtdEstoque = $qtdProd - $qtd;
+            $prod_update = mysqli_query($conexao,"UPDATE produto SET quantEstoque = $qtdEstoque WHERE idProduto =".$prod);
+            echo "<script>
+                alert('Conta cadastrada!');
+                window.location.href='contas.php';
+                </script>";
 
+        }else {
+            echo "<script>
+                alert('Não há produtos o suficiente para a ação requerida. Por favor, altere a quantidade');
+                window.location.href='cadastroconta.php';
+                </script>";
+        }
     }
 
     if ($_SESSION['nivel']) 
