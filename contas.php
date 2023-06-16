@@ -34,12 +34,7 @@ session_start();
     <link rel="stylesheet" href="./css/./tabelaC.css">
     <title>Contas</title>
 </head>
-<style>
-    table,td,th {
-        border:1px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <body>
 
     <div class="tituloBot">
@@ -49,7 +44,6 @@ session_start();
         
     </div>
             <div class="grupo">
-                <div class="sub-grupo">idConta</div>
                 <div class="sub-grupo">Garçom</div>
                 <div class="sub-grupo">Data Abertura</div>
                 <div class="sub-grupo">Hora Abertura</div>
@@ -62,7 +56,6 @@ session_start();
                     while ($row = mysqli_fetch_array($contas)) 
                     {
                         echo '<div class="grupo2">';
-                        echo '<div class="sub-grupo2">'.$row['idConta']."</div>";
                         echo '<div class="sub-grupo2">'.$row['garcom']."</div>";
                         $data = date('d/m/Y', strtotime($row['dataAbertura']));
                         echo '<div class="sub-grupo2">'.$data."</div>";

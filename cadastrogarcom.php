@@ -47,7 +47,8 @@ session_start();
                 $result = mysqli_query($conexao,"INSERT INTO usuario(nome,telefone,endereco,cpf,rg,email,senha,nivel) 
                 VALUES ('$nome','$telefone','$endereco','$cpf','$rg','$email','$senha',$nivel)");
                 
-                echo "<script>alert('Garçom cadastrado!')</script>";
+                echo "<script>alert('Garçom cadastrado!');
+                window.location.href='garcom.php';</script>";
             }
             else
             {

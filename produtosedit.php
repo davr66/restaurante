@@ -40,6 +40,7 @@ session_start();
         $nomeProd = $_POST['nome'];
         $porcao = $_POST['porcao'];
         $valor = $_POST['valor'];
+        $valor = str_replace(",",".",$valor);
         $idCategoria = $_POST['categoria'];
         $quantEstoque = $_POST['quantEstoque'];
         $idProd = $_POST['idProduto'];
@@ -48,8 +49,8 @@ session_start();
         valor = $valor,idCategoria = $idCategoria,quantEstoque = $quantEstoque
         WHERE idProduto =".$idProd);
                 
-        echo "<script>alert('Produto adicionado!')</script>";
-        header("Location:produtos.php");
+        echo "<script>alert('Produto atualizado!');
+        window.location.href='produtos.php';</script>";
     }
 
     if ($_SESSION['nivel']) 
@@ -68,6 +69,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/telaProduto.css">
+    <script defer src="js/main.js"></script>
     <title>Edição de Produto</title>
 </head>
 <body>
@@ -82,10 +84,10 @@ session_start();
         <input type="text" class="caixa-Registro" value ="<?php echo $produtos['nome'];?>" name="nome">
         <br>
         <label for="porcao" id="TextoC">Porção:</label>
-        <input type="text" class="caixa-Registro" value="<?php echo $produtos['porcao']; ?>" name="porcao">
+        <input type="text" onkeypress="return somenteNumeros(event)" class="caixa-Registro" value="<?php echo $produtos['porcao']; ?>" name="porcao">
         <br>
         <label for="valor" id="TextoC">Valor:</label>
-        <input type="text" class="caixa-Registro" value="<?php echo $produtos['valor']; ?>" name="valor">
+        <input type="text" id="numerosVirgula" onkeypress="return keypressed( this , event );" class="caixa-Registro" value="<?php echo $produtos['valor']; ?>" name="valor">
         <br>
         <label for="categoria" id="TextoC">Categoria</label>
         <select name="categoria" class="caixa-Registro">

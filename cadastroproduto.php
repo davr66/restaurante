@@ -35,8 +35,8 @@ session_start();
         $result = mysqli_query($conexao,"INSERT INTO produto(nome,porcao,valor,idCategoria,quantEstoque) 
                 VALUES ('$nomeProd',$porcao,$valor,$idCategoria,$quantEstoque)");
                 
-        echo "<script>alert('Produto adicionado!')</script>";
-        header("Location:produtos.php");
+        echo "<script>alert('Produto adicionado!');
+        window.location.href='produtos.php';</script>";
     }
 
     if ($_SESSION['nivel']) 
@@ -55,6 +55,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/telaProduto.css">
+    <script defer src="js/main.js"></script>
     <title>Cadastro de Produto</title>
 </head>
 <body>
@@ -69,10 +70,10 @@ session_start();
                             <input type="text" name="nome" class="caixa-Registro">
                             <br>
                             <label for="porcao" id="TextoC">Porção:</label>
-                            <input type="text" name="porcao" class="caixa-Registro">
+                            <input type="number" onkeypress="return somenteNumeros(event)" name="porcao" class="caixa-Registro">
                             <br>
                             <label for="valor" id="TextoC">Valor:</label>
-                            <input type="text" name="valor" class="caixa-Registro">
+                            <input type="text" id="numerosVirgula" onkeypress="return keypressed( this , event );" name="valor" class="caixa-Registro">
                             <br>
                             <label for="categoria" id="TextoC">Categoria</label>
                             <select name="categoria" class="caixa-Registro">
@@ -84,7 +85,7 @@ session_start();
                             </select>
                             <br>
                             <label for="quantEstoque" id="TextoC">Quantidade no Estoque</label>
-                            <input type="text" name="quantEstoque" class="caixa-Registro">
+                            <input type="number" onkeypress="return somenteNumeros(event)" name="quantEstoque" class="caixa-Registro">
                             <br>
                             <span class="alinhamento">
                             <input type="submit" name="submit" value="Enviar" class="botao-Env"> 

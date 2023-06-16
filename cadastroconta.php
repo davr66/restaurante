@@ -68,6 +68,7 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/telaConta.css">
+    <script defer src="js/main.js"></script>
     <title>Cadastro de Conta</title>
 </head>
 <body>
@@ -96,7 +97,7 @@ date_default_timezone_set('America/Sao_Paulo');
                     ?>
                 </select>
                 <label for="qtd" id="TextoC">Quant.</label>
-                <input type="number" name="qtd" class="caixa-Registro">
+                <input type="number" onkeypress="return somenteNumeros(event)" name="qtd" class="caixa-Registro">
                 <span class="alinhamento">
                 <input type="submit" name="submit" value="Enviar" class="botao-Env">
                 <button class="botao-Env" onclick="javascript:history.go(-1)">Voltar</button>

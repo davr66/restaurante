@@ -46,23 +46,21 @@ session_start();
     
   
         <div class="grupo">
-            <div class="sub-grupo">idProd.</div>
             <div class="sub-grupo">Nome</div>
             <div class="sub-grupo">Valor</div>
             <div class="sub-grupo">Categoria</div>
             <div class="sub-grupo">Quant. em Estoque</div> 
-            </div>
+        </div>
 
                 <?php 
                     while ($row = mysqli_fetch_array($produtos)) {
                         echo '<div class="grupo2">';
-                        echo '<div class="sub-grupo2">'.$row['idProduto']."</div>";
                         echo '<div class="sub-grupo2">'.$row['nome']."</div>";
                         echo '<div class="sub-grupo2">R$'.str_replace(".",",",$row['valor'])."</div>";
                         echo '<div class="sub-grupo2">'.$row['nomeCategoria']."</div>";
                         echo '<div class="sub-grupo2">'.$row['quantEstoque']."</div>";
                         echo '
-                        <a class="sub-grupo2"href="produtosedit.php?idProduto=' .$row['idProduto'].'">Editar</a>';
+                        <a class="sub-grupo2" href="produtosedit.php?idProduto=' .$row['idProduto'].'">Editar</a>';
                         
                         echo '<div class="sub-grupo2"> <form method="post" action="delete.php">
                         <input type="hidden" name="idProduto" value="'.$row['idProduto'].'">

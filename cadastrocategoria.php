@@ -19,7 +19,8 @@ session_start();
         $result = mysqli_query($conexao,"INSERT INTO categoria(nomeCategoria) 
         VALUES ('$nomeCategoria')");
                 
-        echo "<script>alert('Categoria cadastrada!')</script>";
+        echo "<script>alert('Categoria cadastrada!');
+        window.location.href='categoria.php';</script>";
     }
 
     if ($_SESSION['nivel']) 

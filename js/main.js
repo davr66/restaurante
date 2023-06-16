@@ -38,3 +38,29 @@ window.onload = function(){
     }
 }
 
+function keypressed( obj , e ) { //APENAS NUMEROS E VIRGULA
+    var tecla = ( window.event ) ? e.keyCode : e.which;
+    var texto = document.getElementById("numerosVirgula").value
+    var indexvir = texto.indexOf(",")
+    var indexpon = texto.indexOf(".")
+   
+   if ( tecla == 8 || tecla == 0 )
+       return true;
+   if ( tecla != 44 && tecla != 46 && tecla < 48 || tecla > 57 )
+       return false;
+   if (tecla == 44) { if (indexvir !== -1 || indexpon !== -1) {return false} }
+   if (tecla == 46) { if (indexvir !== -1 || indexpon !== -1) {return false} }
+}
+
+function somenteNumeros(e) {
+    var charCode = e.charCode ? e.charCode : e.keyCode;
+    // charCode 8 = backspace   
+    // charCode 9 = tab
+    if (charCode != 8 && charCode != 9) {
+        // charCode 48 equivale a 0   
+        // charCode 57 equivale a 9
+        if (charCode < 48 || charCode > 57) {
+            return false;
+        }
+    }
+}

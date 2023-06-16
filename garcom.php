@@ -39,7 +39,6 @@ session_start();
     </div>
            
                 <div class="grupo">
-                    <div class="sub-grupo">idUser</div>
                     <div class="sub-grupo">Nome</div>
                     <div class="sub-grupo">Telefone</div>
                     <div class="sub-grupo">Endereço</div>
@@ -52,7 +51,6 @@ session_start();
                 <?php 
                     while ($row = mysqli_fetch_array($garcom)) {
                         echo '<div class="grupo2">';
-                        echo '<div class="sub-grupo2">'.$row['idUsuario']."</div>";
                         echo '<div class="sub-grupo2">'.$row['nome']."</div>";
                         echo '<div class="sub-grupo2">'.$row['telefone']."</div>";
                         echo '<div class="sub-grupo2">'.$row['endereco']."</div>";

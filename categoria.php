@@ -42,7 +42,6 @@ session_start();
 
     <table>
         <div class="grupo">
-                <div class="sub-grupo">idCategoria</div>
                 <div class="sub-grupo">nome</div>
 
             </div>
@@ -50,7 +49,6 @@ session_start();
                 <?php 
                     while ($row = mysqli_fetch_array($categoria)) {
                         echo '<div class="grupo2">';
-                        echo '<div class="sub-grupo2">'.$row['idCategoria']."</div>";
                         echo '<div class="sub-grupo2">'.$row['nomeCategoria']."</div>";
                         echo '<a href="categoriaedit.php?idCategoria='.$row['idCategoria'].'" class="sub-grupo2">Editar</a>
                         ';
